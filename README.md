@@ -1,14 +1,17 @@
 # SmartFleet_Route_Optimizer
 
 **Project Overview:**
-SmartFleet Route Optimizer is an AI-powered web application designed to optimize fleet routing for taxi and transportation services in Chicago. It integrates multiple data sources—including crime statistics, weather forecasts, taxi trip records, ADAS-EV sensor data, Terra-D2 gyro sensor readings, traffic congestion metrics, and news sentiment analysis—to generate dynamic, risk-minimized routes. The app employs machine learning models for surge pricing calculation, crime prediction, weather forecasting, news sentiment classification, and sensor degradation modeling, enabling fleet operators to reduce operational costs, improve safety, and enhance efficiency.
-This project demonstrates end-to-end ML engineering: from data preprocessing and feature engineering to model training, real-time inference, and interactive visualization. It simulates real-world scenarios, projecting up to 35% cost reductions and 18% lower collision risks through optimized routing. The app is live at http://35.89.230.31:8501/ and optimized for mobile accessibility, making it a scalable solution for urban fleet management.
+SmartFleet Route Optimizer is an AI-powered web application designed to optimize fleet routing for taxi and transportation services in Chicago. It integrates multiple data sources—including crime statistics, weather forecasts, taxi trip records, ADAS-EV sensor data, Terra-D2 gyro sensor readings, traffic congestion metrics, and news sentiment analysis—to generate dynamic, risk-minimized routes. 
+
+The app employs machine learning models for surge pricing calculation, crime prediction, weather forecasting, news sentiment classification, and sensor degradation modeling, enabling fleet operators to reduce operational costs, improve safety, and enhance efficiency.
+
+This project demonstrates **end-to-end ML engineering:** from data preprocessing and feature engineering to model training, real-time inference, and interactive visualization. It simulates real-world scenarios, projecting up to 35% cost reductions and 18% lower collision risks through optimized routing. The app is live at http://35.89.230.31:8501/ and optimized for mobile accessibility, making it a scalable solution for urban fleet management.
 
 **Key highlights:**
 
-ML-Driven Risk Modeling: Composite risk scores combining environmental, temporal, and sensor data using supervised ML models.
-Real-Time Prediction: Interactive controls for scenario simulation with ML-based predictions for crime, weather, and sentiment.
-Business Impact: Quantifiable savings through a "What-If Cost Estimator," projecting $27,000+ annual sensor-related savings.
+**ML-Driven Risk Modeling:** Composite risk scores combining environmental, temporal, and sensor data using supervised ML models.
+**Real-Time Prediction:** Interactive controls for scenario simulation with ML-based predictions for crime, weather, and sentiment.
+**Business Impact:** Quantifiable savings through a "What-If Cost Estimator," projecting $27,000+ annual sensor-related savings.
 
 This project showcases skills in ML pipelines, geospatial analysis, and production-grade systems, ideal for roles in bioinformatics, healthcare, and fintech AI.
 Features
@@ -37,7 +40,7 @@ These models were developed using **PyTorch**, **Scikit-learn**, and **NumPy**, 
 
 **Accessing the App**
 
-Live Demo: Visit http://35.89.230.31:8501/ to interact with the app.
+Live Demo: Visit **http://35.89.230.31:8501/** to interact with the app.
 
 **Interaction Guide:**
 Use the Control Panel to adjust parameters (e.g., hour, temperature).
