@@ -1,0 +1,6 @@
+metric,t_statistic,p_value,significant,confidence_interval,cohens_d,effect_size,statistical_power,interpretation
+Cost Savings per Route,12.85420264414601,2.8591350025299072e-36,True,53.1–57.5,0.5748574181773607,Medium 📊,100.0%,Strong cost savings improvement
+Risk Score,21.13735161846465,2.996157362847729e-86,True,6.0–6.5,0.9452911016640432,Large 🎯,100.0%,Strong risk reduction
+Route Efficiency,21.92711782240239,3.37381319040725e-92,True,5.974±0.092,0.9806105200307781,Large 🎯,100.0%,Strong efficiency gain
+Surge Multiplier,0.0,1.0,False,1.33±0.01,0.0,Negligible ➖,2.5%,No significant difference
+Avoided Costs,0.0,1.0,False,2.8±0.0,0.0,Negligible ➖,2.5%,No significant difference

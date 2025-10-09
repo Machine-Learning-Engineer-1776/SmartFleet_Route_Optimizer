@@ -1,0 +1,13 @@
+Metric,Value,Impact,Recommendation
+Baseline Annual Savings ($M),20.57,Baseline,Maintain
+Optimized Annual Savings ($M),30.27,Target,Deploy
+Annual Cost Savings ($M),9.7,Primary,Prioritize
+Year 1 ROI (%),24142.6,Financial,Evaluate
+3-Year ROI (%),72577.9,Financial,Strong
+Payback Period (Months),0.0,Financial,Fast
+Risk-Adjusted Savings ($M),9.52,Risk,Optimize
+Risk Reduction Value ($M),157.99,Risk,Quantify
+Monthly Scalability Factor,0.2,Operational,Monitor
+CSAT Improvement (%),7.1,Customer,Measure
+Implementation Cost ($K),75.0,Cost,Budget
+Annual Maintenance ($K),25.0,Cost,Budget

@@ -1,0 +1,15 @@
+metric,baseline,production,improvement,business_impact
+total_cost_savings,37572.335936756834,55283.86086555921,up,high
+avg_cost_savings,37.572335936756836,55.28386086555921,up,medium
+savings_uplift_pct,0.0,47.139802429678795,uplift,high
+total_risk,12023.466772554653,6252.324170150228,down,high
+avg_risk,12.023466772554654,6.252324170150229,down,medium
+risk_reduction_pct,0.0,47.99898990512382,reduction,high
+route_efficiency,3.733562339112904,5.973571090531381,up,medium
+efficiency_uplift_pct,0.0,59.99655417433593,uplift,medium
+avg_computation_time,0.25,0.4000000000000001,up,low
+time_increase_pct,0.0,60.00000000000003,increase,low
+avg_surge_multiplier,1.3345,1.3345,up,medium
+surge_improvement_pct,0.0,0.0,improvement,medium
+avg_avoided_costs,2.8141916267389395,2.8141916267389395,down,medium
+cost_reduction_pct,0.0,0.0,reduction,medium
