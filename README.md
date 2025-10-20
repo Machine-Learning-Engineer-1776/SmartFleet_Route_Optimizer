@@ -44,7 +44,7 @@ The application leverages advanced machine learning models for real-time predict
 
 
 ------------------------------------------------------------------------------------------------
-**Machine Learning Models:**
+**🤖 Machine Learning Models:**
 
 The application integrates multiple machine learning models to process and predict from diverse data sources, ensuring robust and actionable insights:
 
@@ -85,7 +85,7 @@ These models are built using **PyTorch**, **Scikit-learn**, and **NumPy**, with 
 ------------------------------------------------------------------------------------------------
 
 
-**Data Sources:**
+**📊 Data Sources:**
 
 •	**Chicago Crime Data:** Sampled CSV from the Chicago Data Portal for crime prediction modeling.
 
