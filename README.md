@@ -64,122 +64,123 @@ These models are built using **PyTorch**, **Scikit-learn**, and **NumPy**, with 
 
   •	**Interaction Guide:**
   
-    1.	Navigate to the **How It Works** section to understand the application’s components.
+  1.	Navigate to the **How It Works** section to understand the application’s components.
 
-    2.	Use the **Control Panel** to adjust parameters (e.g., hour, temperature, crime threshold).
+  2.	Use the **Control Panel** to adjust parameters (e.g., hour, temperature, crime threshold).
 
-    3.	Explore sensor health in the **Sensor Performance Analysis** section.
+  3.	Explore sensor health in the **Sensor Performance Analysis** section.
 
-    4.	Simulate routes and view the heatmap in the Route Optimization and Chicago Risk Heatmap sections.
+  4.	Simulate routes and view the heatmap in the **Route Optimization** and **Chicago Risk Heatmap** sections.
 
-    5.	Review KPIs in the Executive Dashboard.
+  5.	Review KPIs in the **Executive Dashboard**.
 
-6.	Calculate savings in the What-If Cost Estimator to see detailed cost breakdowns.
+  6.	Calculate savings in the **What-If Cost Estimator** to see detailed cost breakdowns.
 
 PIC HERE (Suggested: Screenshot of the Control Panel showing the Crime Risk Threshold slider and its note.)
 
-Data Sources
+**Data Sources**
 
-•	Chicago Crime Data: Sampled CSV from the Chicago Data Portal for crime prediction modeling.
+•	**Chicago Crime Data:** Sampled CSV from the Chicago Data Portal for crime prediction modeling.
 
-•	Chicago Weather Data: Historical weather metrics for weather risk assessment.
+•	**Chicago Weather Data:** Historical weather metrics for weather risk assessment.
 
-•	Chicago Taxi Data: Sampled Excel file from taxi trip records for surge pricing and demand modeling.
+•	**Chicago Taxi Data:** Sampled Excel file from taxi trip records for surge pricing and demand modeling.
 
-•	ADAS-EV Dataset: Sensor data for vision-based obstacle detection and risk weighting.
+•	**ADAS-EV Dataset:** Sensor data for vision-based obstacle detection and risk weighting.
 
-•	Terra-D2 Dataset: Gyro sensor readings for stability risk analysis and degradation modeling.
+•	**Terra-D2 Dataset:** Gyro sensor readings for stability risk analysis and degradation modeling.
 
-•	News Sentiment Analysis: CSV for LLM-based sentiment classification and risk factor integration.
+•	**News Sentiment Analysis:** CSV for LLM-based sentiment classification and risk factor integration.
 
 All data is preprocessed for privacy and efficiency. Full datasets are available on the Chicago Data Portal and Kaggle.
 
-Technologies Used
+**Technologies Used**
 
-•	Frontend: Streamlit for an interactive, real-time dashboard.
+•	**Frontend:** Streamlit for an interactive, real-time dashboard.
 
-•	Data Processing and Machine Learning: Pandas, NumPy, Scikit-learn for preprocessing, feature engineering, and risk modeling.
+•	**Data Processing and Machine Learning:** Pandas, NumPy, Scikit-learn for preprocessing, feature engineering, and risk modeling.
 
-•	Machine Learning Models: PyTorch for potential graph neural network extensions, Hugging Face for LLM sentiment analysis, and regression/classification models for predictions.
+•	**Machine Learning Models:** PyTorch for potential graph neural network extensions, Hugging Face for LLM sentiment analysis, and regression/classification models for predictions.
 
-•	Visualization: Matplotlib for charts and Folium/Streamlit-Folium for geospatial maps.
+•	**Visualization:** Matplotlib for charts and Folium/Streamlit-Folium for geospatial maps.
 
-•	Additional Tools: Custom CSS for mobile responsiveness, MLflow for experiment tracking, and Streamlit caching for performance optimization.
+•	**Additional Tools:** Custom CSS for mobile responsiveness, MLflow for experiment tracking, and Streamlit caching for performance optimization.
 
-Breakdown of Each Application Section
+**Breakdown of Each Application Section**
 The SmartFleet Route Optimizer is organized into modular sections, each leveraging AI to deliver specific functionality for fleet management. Below is a detailed breakdown of each section, highlighting its purpose, AI integration, and business value.
 
-1. Main Header
+**1. Main Header**
 
-•	Purpose: Introduces the application as a real-time, AI-powered route optimization tool for safer and more efficient fleet operations.
+•	**Purpose:** Introduces the application as a real-time, AI-powered route optimization tool for safer and more efficient fleet operations.
 
-•	AI Integration: Provides context for AI-driven features without direct model integration.
+•	**AI Integration:** Provides context for AI-driven features without direct model integration.
 
-•	Value: Positions the application as a critical tool for operational efficiency, appealing to stakeholders by bridging technical AI capabilities with business outcomes.
+•	**Value:** Positions the application as a critical tool for operational efficiency, appealing to stakeholders by bridging technical AI capabilities with business outcomes.
 
-2. How It Works
+**2. How It Works**
 
-•	Purpose: Guides users through the application’s key components with concise descriptions, making it easy to understand its functionality and value.
+•	**Purpose:** Guides users through the application’s key components with concise descriptions, making it easy to understand its functionality and value.
 
-•	AI Integration: None directly; sets the stage for AI-driven sections.
+•	**AI Integration:** None directly; sets the stage for AI-driven sections.
 
-•	Value: Enhances user onboarding, ensuring accessibility for both technical and non-technical users, including executives and fleet managers.
+•	**Value:** Enhances user onboarding, ensuring accessibility for both technical and non-technical users, including executives and fleet managers.
 
-3. Control Panel - Environmental & Temporal Factors
+**3. Control Panel - Environmental & Temporal Factors**
 
-•	Purpose: Allows users to adjust variables such as day, hour, month, temperature, precipitation, wind, humidity, visibility, demand density, surge multiplier, maintenance impact, crime threshold, and sensor influence weights to simulate routing scenarios.
+•	**Purpose:** Allows users to adjust variables such as day, hour, month, temperature, precipitation, wind, humidity, visibility, demand density, surge multiplier, maintenance impact, crime threshold, and sensor influence weights to simulate routing scenarios.
 
-•	AI Integration: Inputs feed into AI models for crime prediction, weather forecasting, sentiment analysis, and sensor risk scoring, enabling dynamic route optimization.
+•	**AI Integration:** Inputs feed into AI models for crime prediction, weather forecasting, sentiment analysis, and sensor risk scoring, enabling dynamic route optimization.
 
-•	Value: Demonstrates the application’s flexibility in adapting to real-world conditions, showcasing real-time AI inference for scenario planning. The Crime Risk Threshold slider, with its note ("SmartFleet recommends setting the Crime Risk Threshold to 1.0 (maximum) for optimal safety and cost savings. Adjust the slider to explore route modifications and savings driven by our AI-powered crime prediction model."), has transformed user engagement, making it a standout feature for visualizing safety and cost impacts.
+•	**Value:** Demonstrates the application’s flexibility in adapting to real-world conditions, showcasing real-time AI inference for scenario planning. The Crime Risk Threshold slider, with its note ("SmartFleet recommends setting the Crime Risk Threshold to 1.0 (maximum) for optimal safety and cost savings. Adjust the slider to explore route modifications and savings driven by our AI-powered crime prediction model."), has transformed user engagement, making it a standout feature for visualizing safety and cost impacts.
 
 PIC HERE (Suggested: Screenshot of the Crime Risk Threshold slider with its explanatory note.)
 
-4. Sensor Performance Analysis
+**4. Sensor Performance Analysis**
 
-•	Purpose: Monitors the health of ADAS vision and Terra-D2 gyro sensors, displaying failure rates and remaining sensor life based on environmental conditions like humidity.
+•	**Purpose:** Monitors the health of ADAS vision and Terra-D2 gyro sensors, displaying failure rates and remaining sensor life based on environmental conditions like humidity.
 
-•	AI Integration: Employs a quadratic regression model to predict sensor degradation, with visualizations generated using Matplotlib and NumPy-based risk calculations.
+•	**AI Integration:** Employs a quadratic regression model to predict sensor degradation, with visualizations generated using Matplotlib and NumPy-based risk calculations.
 
-•	Value: Projects up to $27,000 in annual maintenance savings by enabling predictive maintenance, reducing downtime and costs. This section highlights AI-driven IoT analytics for fleet management.
+•	**Value:** Projects up to $27,000 in annual maintenance savings by enabling predictive maintenance, reducing downtime and costs. This section highlights AI-driven IoT analytics for fleet management.
 
-5. Route Optimization
+**5. Route Optimization**
 
-•	Purpose: Simulates and visualizes low-risk routes through five Chicago zones, avoiding high-risk areas such as crime hotspots.
+•	**Purpose:** Simulates and visualizes low-risk routes through five Chicago zones, avoiding high-risk areas such as crime hotspots.
 
-•	AI Integration: Uses a probabilistic NumPy-based algorithm aggregating predictions from crime, weather, sentiment, and sensor models to compute a total risk score, visualized with Matplotlib.
+•	**AI Integration:** Uses a probabilistic NumPy-based algorithm aggregating predictions from crime, weather, sentiment, and sensor models to compute a total risk score, visualized with Matplotlib.
 
-•	Value: Reduces simulated collision risks by up to 18%, demonstrating the power of AI in optimizing routes for safety and efficiency.
+•	**Value:** Reduces simulated collision risks by up to 18%, demonstrating the power of AI in optimizing routes for safety and efficiency.
 
-6. Chicago Interactive Map
+**6. Chicago Interactive Map**
 
-•	Purpose: Provides a geospatial visualization of crime density and optimized routes across Chicago.
+•	**Purpose:** Provides a geospatial visualization of crime density and optimized routes across Chicago.
 
-•	AI Integration: Renders heatmaps using Folium, driven by AI-predicted crime probabilities and traffic risks, with route markers reflecting sensor-based risk scores.
+•	**AI Integration:** Renders heatmaps using Folium, driven by AI-predicted crime probabilities and traffic risks, with route markers reflecting sensor-based risk scores.
 
-•	Value: Offers intuitive geospatial analysis, enabling fleet managers to visualize and act on AI-driven risk insights.
+•	**Value:** Offers intuitive geospatial analysis, enabling fleet managers to visualize and act on AI-driven risk insights.
 
 PIC HERE (Suggested: Screenshot of the Chicago Risk Heatmap with the optimized route overlay.)
 
-7. Executive Dashboard
+**7. Executive Dashboard**
 
-•	Purpose: Summarizes fleet-wide performance through KPIs, including active vehicles, daily route savings, risk reduction, and sensor ROI, supported by visualizations.
+•	**Purpose:** Summarizes fleet-wide performance through KPIs, including active vehicles, daily route savings, risk reduction, and sensor ROI, supported by visualizations.
 
-•	AI Integration: Derives metrics (e.g., risk reduction percentage) from AI simulation outputs, visualized with Matplotlib pie, bar, and line charts.
+•	**AI Integration:** Derives metrics (e.g., risk reduction percentage) from AI simulation outputs, visualized with Matplotlib pie, bar, and line charts.
 
-•	Value: Translates AI predictions into actionable business metrics, enabling strategic decision-making with clear ROI insights (e.g., up to 95% risk reduction).
+•	**Value:** Translates AI predictions into actionable business metrics, enabling strategic decision-making with clear ROI insights (e.g., up to 95% risk reduction).
 
-8. What-If Cost Estimator
+**8. What-If Cost Estimator**
 
-•	Purpose: Calculates projected annual fleet savings based on user inputs for fleet size, trip frequency, distance, and cost, with a detailed breakdown of savings sources.
+•	**Purpose:** Calculates projected annual fleet savings based on user inputs for fleet size, trip frequency, distance, and cost, with a detailed breakdown of savings sources.
 
-•	AI Integration: Incorporates AI-driven predictions (e.g., crime avoidance percentages) into arithmetic models, projecting up to 23.5% cost reductions for a 1,500-vehicle fleet. The breakdown includes:
-  o	Sensor Maintenance: Up to $27,000 in savings from predictive maintenance.
-  o	Crime Avoidance: Up to $5.475M by avoiding high-crime zones.
-  o	Sentiment-Based Avoidance: $1.095M by avoiding negative sentiment zones.
-  o	Fuel Efficiency: $3.454M from optimized routes and reduced idling.
-  o	Other Operational: Up to $9.617M from demand-based routing and surge pricing optimizations.
+•	**AI Integration:** Incorporates AI-driven predictions (e.g., crime avoidance percentages) into arithmetic models, projecting up to 23.5% cost reductions for a 1,500-vehicle fleet. The breakdown includes:
+  o	**Sensor Maintenance:** Up to $27,000 in savings from predictive maintenance.
+  o	**Crime Avoidance:** Up to $5.475M by avoiding high-crime zones.
+  o	**Sentiment-Based Avoidance:** $1.095M by avoiding negative sentiment zones.
+  o	**Fuel Efficiency:** $3.454M from optimized routes and reduced idling.
+  o	**Other Operational:** Up to $9.617M from demand-based routing and surge pricing optimizations.
 
-•	Value: Provides a compelling financial justification for adopting SmartFleet, with detailed, transparent savings calculations that have been refined to maximize clarity and impact for sales teams and potential buyers.
+•	**Value:** Provides a compelling financial justification for adopting SmartFleet, with detailed, transparent savings calculations that have been refined to maximize clarity and impact for sales teams and potential buyers.
+
 PIC HERE (Suggested: Screenshot of the What-If Cost Estimator savings breakdown at crime_threshold=0.5.)
 
