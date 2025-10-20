@@ -79,6 +79,7 @@ These models are built using **PyTorch**, **Scikit-learn**, and **NumPy**, with 
 
   6.	Calculate savings in the **What-If Cost Estimator** to see detailed cost breakdowns.
 
+<img width="1049" height="821" alt="{ECAB9C3B-66D9-4221-8CE7-3E4068DE5462}" src="https://github.com/user-attachments/assets/6d5e9fd1-3198-4ca2-8d82-919297b3ef5f" />
 
 
 **Data Sources**
