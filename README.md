@@ -61,6 +61,8 @@ The application integrates multiple machine learning models to process and predi
   
 These models are built using **PyTorch**, **Scikit-learn**, and **NumPy**, with **MLflow** for experiment tracking to ensure reproducibility and scalability.
 
+------------------------------------------------------------------------------------------------
+
 **Accessing the Application**
 
   •	**Live Demo:** Access the application at **http://35.89.230.31:8501/**.
@@ -79,6 +81,7 @@ These models are built using **PyTorch**, **Scikit-learn**, and **NumPy**, with 
 
   6.	Calculate savings in the **What-If Cost Estimator** to see detailed cost breakdowns.
 
+------------------------------------------------------------------------------------------------
 
 
 **Data Sources**
@@ -97,6 +100,10 @@ These models are built using **PyTorch**, **Scikit-learn**, and **NumPy**, with 
 
 All data is preprocessed for privacy and efficiency. Full datasets are available on the Chicago Data Portal and Kaggle.
 
+
+------------------------------------------------------------------------------------------------
+
+
 **Technologies Used**
 
 •	**Frontend:** Streamlit for an interactive, real-time dashboard.
@@ -108,6 +115,10 @@ All data is preprocessed for privacy and efficiency. Full datasets are available
 •	**Visualization:** Matplotlib for charts and Folium/Streamlit-Folium for geospatial maps.
 
 •	**Additional Tools:** Custom CSS for mobile responsiveness, MLflow for experiment tracking, and Streamlit caching for performance optimization.
+
+
+------------------------------------------------------------------------------------------------
+
 
 **Breakdown of Each Application Section**
 The SmartFleet Route Optimizer is organized into modular sections, each leveraging AI to deliver specific functionality for fleet management. Below is a detailed breakdown of each section, highlighting its purpose, AI integration, and business value.
