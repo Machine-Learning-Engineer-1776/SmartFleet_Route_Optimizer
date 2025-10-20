@@ -6,70 +6,73 @@ SmartFleet Route Optimizer is a cutting-edge, AI-powered web application designe
 
 The application leverages advanced machine learning models for real-time predictions, including surge pricing, crime risk, weather impacts, sentiment analysis, and sensor degradation. This enables fleet operators to reduce operational costs by up to 23.5% and lower collision risks through optimized routing. Deployed at http://35.89.230.31:8501/, the application is fully mobile-responsive, making it a scalable solution for urban fleet management.
 
-Key Highlights:
+**Key Highlights:**
 
-•	AI-Driven Risk Modeling: Combines environmental, temporal, and sensor data into composite risk scores using supervised machine learning models.
+  •	**AI-Driven Risk Modeling:** Combines environmental, temporal, and sensor data into composite risk scores using supervised machine learning models.
 
-•	Real-Time Predictions: Interactive controls enable scenario simulation with AI-based predictions for crime, weather, and sentiment.
+  •	**Real-Time Predictions:** Interactive controls enable scenario simulation with AI-based     predictions for crime, weather, and sentiment.
 
-•	Significant Business Impact: The What-If Cost Estimator projects substantial savings, including up to $27,000 annually in sensor maintenance and $5.475M in crime avoidance for a 1,500-vehicle fleet.
+  •	**Significant Business Impact:** The What-If Cost Estimator projects substantial savings, including up to $27,000 annually in sensor maintenance and $5.475M in crime avoidance for a 1,500-vehicle fleet.
 
-•	End-to-End AI Engineering: Demonstrates comprehensive AI pipeline development, from data preprocessing to real-time inference and visualization, suitable for applications in logistics, urban planning, and beyond.
+  •	**End-to-End AI Engineering:** Demonstrates comprehensive AI pipeline development, from data preprocessing to real-time inference and visualization, suitable for applications in logistics, urban planning, and beyond.
 
 PIC HERE (Suggested: Screenshot of the main dashboard showing the title and "How It Works" section.)
-Features
 
-•	How It Works Section: Introduces the application’s core components with clear, concise descriptions to guide users through its functionality.
+**Features**
 
-•	Interactive Control Panel: Allows users to adjust temporal (day, hour, month), environmental (temperature, precipitation, humidity, visibility), economic (surge multiplier, demand density), and safety (crime threshold, sensor influence) parameters to simulate route scenarios.
+  •	**How It Works Section:** Introduces the application’s core components with clear, concise descriptions to guide users through its functionality.
 
-•	Advanced Sensor Intelligence: Monitors ADAS vision and Terra-D2 gyro sensor health, providing failure rates and predictive maintenance insights based on environmental conditions.
+  •	**Interactive Control Panel:** Allows users to adjust temporal (day, hour, month),   environmental (temperature, precipitation, humidity, visibility), economic (surge multiplier, demand density), and safety (crime threshold, sensor influence) parameters to simulate route scenarios.
 
-•	Route Optimization Simulation: Uses a probabilistic algorithm to generate low-risk routes, visualized with Matplotlib, reducing collision risks by up to 18%.
+  •	**Advanced Sensor Intelligence:** Monitors ADAS vision and Terra-D2 gyro sensor health, providing failure rates and predictive maintenance insights based on environmental conditions.
 
-•	Chicago Risk Heatmap: Displays an interactive Folium map with crime density, traffic overlays, and optimized routes for geospatial risk analysis.
+  •	**Route Optimization Simulation:** Uses a probabilistic algorithm to generate low-risk routes, visualized with Matplotlib, reducing collision risks by up to 18%.
 
-•	Executive Dashboard: Presents key performance indicators (KPIs) for fleet activity, risk reduction, and cost savings, with visualizations for strategic oversight.
+  •	**Chicago Risk Heatmap:** Displays an interactive Folium map with crime density, traffic overlays, and optimized routes for geospatial risk analysis.
 
-•	Enhanced What-If Cost Estimator: Calculates detailed annual savings based on user-defined fleet parameters, with a comprehensive breakdown of cost reductions from sensor maintenance, crime avoidance, sentiment-based avoidance, fuel efficiency, and operational optimizations.
+  •	**Executive Dashboard:** Presents key performance indicators (KPIs) for fleet activity, risk reduction, and cost savings, with visualizations for strategic oversight.
 
-•	Mobile Responsiveness: Custom CSS ensures seamless usability across desktop and mobile devices.
+•	**Enhanced What-If Cost Estimator:** Calculates detailed annual savings based on user-defined fleet parameters, with a comprehensive breakdown of cost reductions from sensor maintenance, crime avoidance, sentiment-based avoidance, fuel efficiency, and operational optimizations.
 
-•	Performance Optimization: Streamlit caching enhances efficiency for large datasets.
+•	**Mobile Responsiveness:** Custom CSS ensures seamless usability across desktop and mobile devices.
+
+•	**Performance Optimization:** Streamlit caching enhances efficiency for large datasets.
+
 PIC HERE (Suggested: Screenshot of the What-If Cost Estimator showing the savings breakdown at crime_threshold=0.5.)
 
-Machine Learning Models
+**Machine Learning Models**
 
 The application integrates multiple machine learning models to process and predict from diverse data sources, ensuring robust and actionable insights:
 
-•	Crime Prediction Model: A supervised classification model (e.g., Random Forest) trained on historical crime data to predict crime probabilities by zone and hour. Features are engineered using pivot-based methods to identify violent crime hotspots with high accuracy.
+  •	**Crime Prediction Model:** A supervised classification model (e.g., Random Forest) trained on historical crime data to predict crime probabilities by zone and hour. Features are engineered using pivot-based methods to identify violent crime hotspots with high accuracy.
 
-•	Weather Prediction Model: A regression model (e.g., linear regression) forecasting weather risks based on temperature (>80°F) and precipitation (>0.1 inches), enhanced with synthetic data generation for robust risk assessment.
+  •	**Weather Prediction Model:** A regression model (e.g., linear regression) forecasting weather risks based on temperature (>80°F) and precipitation (>0.1 inches), enhanced with synthetic data generation for robust risk assessment.
 
-•	News Sentiment LLM: A fine-tuned large language model (e.g., BERT via Hugging Face) classifying news articles into sentiment scores, integrated to capture external event impacts (e.g., protests, road closures) on routing decisions.
+  •	**News Sentiment LLM:** A fine-tuned large language model (e.g., BERT via Hugging Face) classifying news articles into sentiment scores, integrated to capture external event impacts (e.g., protests, road closures) on routing decisions.
 
-•	Sensor Degradation Model: A quadratic regression model predicting ADAS vision sensor failure rates based on humidity, combined with weighted risk scoring for Terra-D2 gyro sensors, projecting up to $27,000 in annual maintenance savings.
+  •	**Sensor Degradation Model:** A quadratic regression model predicting ADAS vision sensor failure rates based on humidity, combined with weighted risk scoring for Terra-D2 gyro sensors, projecting up to $27,000 in annual maintenance savings.
 
-•	Composite Risk Model: An ensemble approach aggregating predictions from crime, weather, sentiment, and sensor models, using Scikit-learn for feature scaling and NumPy for probabilistic route optimization, achieving an average cost reduction of 21%.
+  •	**Composite Risk Model:** An ensemble approach aggregating predictions from crime, weather, sentiment, and sensor models, using Scikit-learn for feature scaling and NumPy for probabilistic route optimization, achieving an average cost reduction of 21%.
 
-•	Surge Pricing Model: A rule-based model enhanced with machine learning to compute dynamic surge multipliers, incorporating temporal and demand features adjusted by risk penalties.
-These models are built using PyTorch, Scikit-learn, and NumPy, with MLflow for experiment tracking to ensure reproducibility and scalability.
+  •	**Surge Pricing Model:** A rule-based model enhanced with machine learning to compute dynamic surge multipliers, incorporating temporal and demand features adjusted by risk penalties.
+  
+These models are built using **PyTorch**, **Scikit-learn**, and **NumPy**, with **MLflow** for experiment tracking to ensure reproducibility and scalability.
 
-Accessing the Application
+**Accessing the Application**
 
-•	Live Demo: Access the application at http://35.89.230.31:8501/.
+  •	**Live Demo:** Access the application at **http://35.89.230.31:8501/**.
 
-•	Interaction Guide:
+  •	**Interaction Guide:**
+  
+    1.	Navigate to the **How It Works** section to understand the application’s components.
 
-1.	Navigate to the How It Works section to understand the application’s components.
+    2.	Use the **Control Panel** to adjust parameters (e.g., hour, temperature, crime threshold).
 
-2.	Use the Control Panel to adjust parameters (e.g., hour, temperature, crime threshold).
+    3.	Explore sensor health in the **Sensor Performance Analysis** section.
 
-3.	Explore sensor health in the Sensor Performance Analysis section.
+    4.	Simulate routes and view the heatmap in the Route Optimization and Chicago Risk Heatmap sections.
 
-4.	Simulate routes and view the heatmap in the Route Optimization and Chicago Risk Heatmap sections.
-
-5.	Review KPIs in the Executive Dashboard.
+    5.	Review KPIs in the Executive Dashboard.
 
 6.	Calculate savings in the What-If Cost Estimator to see detailed cost breakdowns.
 
