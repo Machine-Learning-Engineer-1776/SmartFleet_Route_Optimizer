@@ -42,7 +42,7 @@ The application leverages advanced machine learning models for real-time predict
 
 
 
-
+------------------------------------------------------------------------------------------------
 **Machine Learning Models**
 
 The application integrates multiple machine learning models to process and predict from diverse data sources, ensuring robust and actionable insights:
