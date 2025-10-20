@@ -38,8 +38,6 @@ The application leverages advanced machine learning models for real-time predict
 
 •	**Performance Optimization:** Streamlit caching enhances efficiency for large datasets.
 
-Example:  <img width="1161" height="517" alt="{A1E2191F-7CAA-42C8-ABFD-72762372DC12}" src="https://github.com/user-attachments/assets/378bc1b9-3741-479b-9c04-4e791b9980b8" />
-
 
 **Machine Learning Models**
 
@@ -77,7 +75,7 @@ These models are built using **PyTorch**, **Scikit-learn**, and **NumPy**, with 
 
   6.	Calculate savings in the **What-If Cost Estimator** to see detailed cost breakdowns.
 
-PIC HERE (Suggested: Screenshot of the Control Panel showing the Crime Risk Threshold slider and its note.)
+
 
 **Data Sources**
 
@@ -134,7 +132,8 @@ The SmartFleet Route Optimizer is organized into modular sections, each leveragi
 
 •	**Value:** Demonstrates the application’s flexibility in adapting to real-world conditions, showcasing real-time AI inference for scenario planning. The Crime Risk Threshold slider, with its note ("SmartFleet recommends setting the Crime Risk Threshold to 1.0 (maximum) for optimal safety and cost savings. Adjust the slider to explore route modifications and savings driven by our AI-powered crime prediction model."), has transformed user engagement, making it a standout feature for visualizing safety and cost impacts.
 
-PIC HERE (Suggested: Screenshot of the Crime Risk Threshold slider with its explanatory note.)
+<img width="1105" height="365" alt="{8889C828-816E-4228-9A4C-7A9DA054241E}" src="https://github.com/user-attachments/assets/8183b73b-fdff-4f41-a61c-23f3a4d59600" />
+
 
 **4. Sensor Performance Analysis**
 
