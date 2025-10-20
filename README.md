@@ -18,6 +18,8 @@ The application leverages advanced machine learning models for real-time predict
 
 <img width="1517" height="917" alt="{B94413A1-BDB9-45FD-908D-35D1212CB943}" src="https://github.com/user-attachments/assets/749085b6-c912-4f66-98db-e2b35a274618" />
 
+
+
 **Features**
 
   •	**How It Works Section:** Introduces the application’s core components with clear, concise descriptions to guide users through its functionality.
@@ -37,6 +39,8 @@ The application leverages advanced machine learning models for real-time predict
 •	**Mobile Responsiveness:** Custom CSS ensures seamless usability across desktop and mobile devices.
 
 •	**Performance Optimization:** Streamlit caching enhances efficiency for large datasets.
+
+
 
 
 **Machine Learning Models**
