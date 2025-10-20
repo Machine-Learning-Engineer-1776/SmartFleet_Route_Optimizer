@@ -1,6 +1,6 @@
 # SmartFleet_Route_Optimizer
 
-**Project Overview**
+**Project Overview:**
 
 SmartFleet Route Optimizer is a cutting-edge, AI-powered web application designed to optimize fleet routing for taxi and transportation services in Chicago. By integrating diverse data sources—such as crime statistics, weather forecasts, taxi trip records, ADAS vision sensor data, Terra-D2 gyro sensor readings, and news sentiment analysis—the application generates dynamic, risk-minimized routes to enhance safety and operational efficiency.
 
@@ -20,7 +20,7 @@ The application leverages advanced machine learning models for real-time predict
 
 
 
-**Features**
+**Features:**
 
   •	**How It Works Section:** Introduces the application’s core components with clear, concise descriptions to guide users through its functionality.
 
@@ -43,7 +43,7 @@ The application leverages advanced machine learning models for real-time predict
 
 
 ------------------------------------------------------------------------------------------------
-**Machine Learning Models**
+**Machine Learning Models:**
 
 The application integrates multiple machine learning models to process and predict from diverse data sources, ensuring robust and actionable insights:
 
@@ -63,7 +63,7 @@ These models are built using **PyTorch**, **Scikit-learn**, and **NumPy**, with 
 
 ------------------------------------------------------------------------------------------------
 
-**Accessing the Application**
+**Accessing the Application:**
 
   •	**Live Demo:** Access the application at **http://35.89.230.31:8501/**.
 
@@ -84,7 +84,7 @@ These models are built using **PyTorch**, **Scikit-learn**, and **NumPy**, with 
 ------------------------------------------------------------------------------------------------
 
 
-**Data Sources**
+**Data Sources:**
 
 •	**Chicago Crime Data:** Sampled CSV from the Chicago Data Portal for crime prediction modeling.
 
@@ -104,7 +104,7 @@ All data is preprocessed for privacy and efficiency. Full datasets are available
 ------------------------------------------------------------------------------------------------
 
 
-**Technologies Used**
+**Technologies Used:**
 
 •	**Frontend:** Streamlit for an interactive, real-time dashboard.
 
@@ -120,7 +120,7 @@ All data is preprocessed for privacy and efficiency. Full datasets are available
 ------------------------------------------------------------------------------------------------
 
 
-**Breakdown of Each Application Section**
+**Breakdown of Each Application Section:**
 The SmartFleet Route Optimizer is organized into modular sections, each leveraging AI to deliver specific functionality for fleet management. Below is a detailed breakdown of each section, highlighting its purpose, AI integration, and business value.
 
 **1. Main Header**
