@@ -38,7 +38,8 @@ The application leverages advanced machine learning models for real-time predict
 
 •	**Performance Optimization:** Streamlit caching enhances efficiency for large datasets.
 
-PIC HERE (Suggested: Screenshot of the What-If Cost Estimator showing the savings breakdown at crime_threshold=0.5.)
+Example:  <img width="1161" height="517" alt="{A1E2191F-7CAA-42C8-ABFD-72762372DC12}" src="https://github.com/user-attachments/assets/378bc1b9-3741-479b-9c04-4e791b9980b8" />
+
 
 **Machine Learning Models**
 
