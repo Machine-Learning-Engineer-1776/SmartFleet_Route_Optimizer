@@ -186,5 +186,4 @@ PIC HERE (Suggested: Screenshot of the Chicago Risk Heatmap with the optimized r
 
 •	**Value:** Provides a compelling financial justification for adopting SmartFleet, with detailed, transparent savings calculations that have been refined to maximize clarity and impact for sales teams and potential buyers.
 
-PIC HERE (Suggested: Screenshot of the What-If Cost Estimator savings breakdown at crime_threshold=0.5.)
 
