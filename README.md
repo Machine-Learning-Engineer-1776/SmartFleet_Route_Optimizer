@@ -16,7 +16,7 @@ The application leverages advanced machine learning models for real-time predict
 
   •	**End-to-End AI Engineering:** Demonstrates comprehensive AI pipeline development, from data preprocessing to real-time inference and visualization, suitable for applications in logistics, urban planning, and beyond.
 
-PIC HERE (Suggested: Screenshot of the main dashboard showing the title and "How It Works" section.)
+<img width="1517" height="917" alt="{B94413A1-BDB9-45FD-908D-35D1212CB943}" src="https://github.com/user-attachments/assets/749085b6-c912-4f66-98db-e2b35a274618" />
 
 **Features**
 
