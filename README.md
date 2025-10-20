@@ -40,6 +40,7 @@ The application leverages advanced machine learning models for real-time predict
 
 •	**Performance Optimization:** Streamlit caching enhances efficiency for large datasets.
 
+<img width="1049" height="193" alt="{AEC153B3-3C52-4F10-BFF5-9F214611FC08}" src="https://github.com/user-attachments/assets/0c5b3126-5a47-49ce-9355-5e22ac79bd8a" />
 
 
 
@@ -148,6 +149,9 @@ The SmartFleet Route Optimizer is organized into modular sections, each leveragi
 
 •	**Value:** Projects up to $27,000 in annual maintenance savings by enabling predictive maintenance, reducing downtime and costs. This section highlights AI-driven IoT analytics for fleet management.
 
+<img width="1041" height="745" alt="{D8AB9F77-807D-4434-8864-00EB036CA6AC}" src="https://github.com/user-attachments/assets/d5d0d77e-3e99-4e24-8b98-c2706c1b2c7d" />
+
+
 **5. Route Optimization**
 
 •	**Purpose:** Simulates and visualizes low-risk routes through five Chicago zones, avoiding high-risk areas such as crime hotspots.
@@ -155,6 +159,9 @@ The SmartFleet Route Optimizer is organized into modular sections, each leveragi
 •	**AI Integration:** Uses a probabilistic NumPy-based algorithm aggregating predictions from crime, weather, sentiment, and sensor models to compute a total risk score, visualized with Matplotlib.
 
 •	**Value:** Reduces simulated collision risks by up to 18%, demonstrating the power of AI in optimizing routes for safety and efficiency.
+
+<img width="1081" height="725" alt="{E2E9AA24-CA77-434A-959B-CB805BC53CB2}" src="https://github.com/user-attachments/assets/917b6b74-0ee4-4b32-9553-25e4012ca2ff" />
+
 
 **6. Chicago Interactive Map**
 
@@ -164,7 +171,7 @@ The SmartFleet Route Optimizer is organized into modular sections, each leveragi
 
 •	**Value:** Offers intuitive geospatial analysis, enabling fleet managers to visualize and act on AI-driven risk insights.
 
-PIC HERE (Suggested: Screenshot of the Chicago Risk Heatmap with the optimized route overlay.)
+
 
 **7. Executive Dashboard**
 
@@ -173,6 +180,9 @@ PIC HERE (Suggested: Screenshot of the Chicago Risk Heatmap with the optimized r
 •	**AI Integration:** Derives metrics (e.g., risk reduction percentage) from AI simulation outputs, visualized with Matplotlib pie, bar, and line charts.
 
 •	**Value:** Translates AI predictions into actionable business metrics, enabling strategic decision-making with clear ROI insights (e.g., up to 95% risk reduction).
+
+<img width="973" height="589" alt="{E9AC852F-5557-49E6-88F7-D7D20817B325}" src="https://github.com/user-attachments/assets/4703930b-93bf-4bbc-9c3f-0e5b18979252" />
+
 
 **8. What-If Cost Estimator**
 
@@ -187,4 +197,5 @@ PIC HERE (Suggested: Screenshot of the Chicago Risk Heatmap with the optimized r
 
 •	**Value:** Provides a compelling financial justification for adopting SmartFleet, with detailed, transparent savings calculations that have been refined to maximize clarity and impact for sales teams and potential buyers.
 
+<img width="977" height="793" alt="{0DDEB691-E78D-4C7B-AF00-EEC8EBD9E328}" src="https://github.com/user-attachments/assets/9d64fa87-b76d-4ea6-aa77-3da28531cf89" />
 
