@@ -1,211 +1,96 @@
-# 🚛 SmartFleet_Route_Optimizer
-http://35.89.230.31:8501/
+# 🚛 SmartFleet Route Optimizer
 
-**Project Overview:**
+A Streamlit prototype that combines Chicago crime, taxi, traffic, weather, vehicle-sensor and event-sentiment data into a route risk score, with an interactive map, scenario controls and a what-if cost calculator. Supporting notebooks cover a Random Forest risk evaluation and an X (Twitter) sentiment + LLM-summary pipeline.
 
-SmartFleet Route Optimizer is a cutting-edge, AI-powered web application designed to optimize fleet routing for taxi and transportation services in Chicago. By integrating diverse data sources—such as crime statistics, weather forecasts, taxi trip records, ADAS vision sensor data, Terra-D2 gyro sensor readings, and news sentiment analysis—the application generates dynamic, risk-minimized routes to enhance safety and operational efficiency.
+**Live demo:** http://35.89.230.31:8501/ (may be offline when the server isn't running)
 
-The application leverages advanced machine learning models for real-time predictions, including surge pricing, crime risk, weather impacts, sentiment analysis, and sensor degradation. This enables fleet operators to reduce operational costs by up to 23.5% and lower collision risks through optimized routing. Deployed at http://35.89.230.31:8501/, the application is fully mobile-responsive, making it a scalable solution for urban fleet management.
+<img width="1517" height="917" alt="SmartFleet dashboard" src="https://github.com/user-attachments/assets/749085b6-c912-4f66-98db-e2b35a274618" />
 
-**Key Highlights:**
+---
 
-  •	**AI-Driven Risk Modeling:** Combines environmental, temporal, and sensor data into composite risk scores using supervised machine learning models.
+## What it does
 
-  •	**Real-Time Predictions:** Interactive controls enable scenario simulation with AI-based     predictions for crime, weather, and sentiment.
+**Streamlit app (`application.py`)**
+- **Data fusion:** merges sampled Chicago taxi trips with crime, weather, traffic-congestion, ADAS sensor and event-sentiment data by time/zone
+- **Risk scoring:** rule-based risk terms (crime rate, weather thresholds, obstacle distance, gyro labels, negative sentiment, traffic speed), weighted by user-controlled sliders
+- **Scenario controls:** day/hour, temperature, rain, wind, humidity, visibility, surge multiplier, demand density, crime threshold, sensor weights
+- **Sensor panel:** vision-sensor accuracy vs. humidity from a quadratic formula, plus gyro risk
+- **Route view:** a simulated 5-stop route scored against the risk formula (next stops are sampled randomly, so this is an illustration, not an optimized route)
+- **Chicago map:** Folium heatmap of crime locations with route and sensor-risk markers
+- **Executive dashboard + what-if cost estimator:** KPIs and annual savings computed from your fleet inputs and **assumed** savings percentages. These are scenario estimates, not measured outcomes.
 
-  •	**Significant Business Impact:** The What-If Cost Estimator projects substantial savings, including up to $27,000 annually in sensor maintenance and $5.475M in crime avoidance for a 1,500-vehicle fleet.
+**Notebooks**
+- `ML Model Evaluations/SmartFleet_Evaluation (1).ipynb`: trains and evaluates scikit-learn **Random Forest** classifiers for crime risk and composite risk (SMOTE, ROC/PR curves, confusion matrices)
+- `LLM Model/LLM_X_WebScraper.ipynb`: pulls Chicago traffic posts from the X API (token entered at runtime), scores sentiment with `cardiffnlp/twitter-roberta-base-sentiment-latest` and VADER, and writes route alerts with `sshleifer/distilbart-cnn-12-6`; uses sentence-transformers and MLflow
 
-  •	**End-to-End AI Engineering:** Demonstrates comprehensive AI pipeline development, from data preprocessing to real-time inference and visualization, suitable for applications in logistics, urban planning, and beyond.
+<img width="1105" height="365" alt="Control panel" src="https://github.com/user-attachments/assets/8183b73b-fdff-4f41-a61c-23f3a4d59600" />
 
-<img width="1517" height="917" alt="{B94413A1-BDB9-45FD-908D-35D1212CB943}" src="https://github.com/user-attachments/assets/749085b6-c912-4f66-98db-e2b35a274618" />
+---
 
+## Results (honest summary)
 
+From `ML Model Evaluations/deployed_metrics.csv` and the evaluation notebook:
 
-**Features:**
+| Model | Data | Accuracy | F1 | ROC-AUC |
+|-------|------|----------|----|---------|
+| Crime risk (Random Forest) | 72 zone-hour rows (SMOTE applied), ~18 test rows | 0.94 | 0.93 | 0.95 |
+| Composite risk (Random Forest) | 13,291 rows | 0.84 | 0.84 | 0.93 |
 
-  •	**How It Works Section:** Introduces the application’s core components with clear, concise descriptions to guide users through its functionality.
+Caveats:
+- The crime model's test set is very small, so its score is not a reliable estimate.
+- In the logged run, gyro (Terra-D2) and sentiment risk fell back to **synthetic values** because their timestamps failed to parse, and random noise was added to features. The composite score therefore measures a partly synthetic target.
+- The Streamlit app does **not** load these trained models; it uses the rule-based formulas above.
+- Dollar savings shown in the app (and in `business_impact.txt` / the A/B testing folder) are outputs of assumption-based calculators, not observed results.
 
-  •	**Interactive Control Panel:** Allows users to adjust temporal (day, hour, month),   environmental (temperature, precipitation, humidity, visibility), economic (surge multiplier, demand density), and safety (crime threshold, sensor influence) parameters to simulate route scenarios.
+### Next steps
+- Replace the random route sampling with a real optimizer (e.g. shortest path over a risk-weighted road graph)
+- Serve the trained models in the app instead of fixed formulas
+- Evaluate on a larger, fully real labelled dataset
 
-  •	**Advanced Sensor Intelligence:** Monitors ADAS vision and Terra-D2 gyro sensor health, providing failure rates and predictive maintenance insights based on environmental conditions.
+---
 
-  •	**Route Optimization Simulation:** Uses a probabilistic algorithm to generate low-risk routes, visualized with Matplotlib, reducing collision risks by up to 18%.
+## Data
 
-  •	**Chicago Risk Heatmap:** Displays an interactive Folium map with crime density, traffic overlays, and optimized routes for geospatial risk analysis.
+| File | Source |
+|------|--------|
+| `Chicago Crime Sampled.csv` (1,000 rows) | Chicago Data Portal crimes data (sample) |
+| `Chicago Taxi Sampled.xlsx` | Chicago Data Portal taxi trips (sample) |
+| `Chicago_Traffic_Tracker.csv` | Chicago Traffic Tracker regional congestion data |
+| `Chicago Weather.csv` | NOAA daily records, Chicago O'Hare station (USW00094846) |
+| `ADAS_EV_Dataset.csv`, `News Sentiment Analysis.csv` | see notebooks |
+| `Terra-D2-multi-labeled-interpolated.csv` | gyro sensor data; **not included in this repo** (needed by the app) |
 
-  •	**Executive Dashboard:** Presents key performance indicators (KPIs) for fleet activity, risk reduction, and cost savings, with visualizations for strategic oversight.
+---
 
-•	**Enhanced What-If Cost Estimator:** Calculates detailed annual savings based on user-defined fleet parameters, with a comprehensive breakdown of cost reductions from sensor maintenance, crime avoidance, sentiment-based avoidance, fuel efficiency, and operational optimizations.
+## How to run locally
 
-•	**Mobile Responsiveness:** Custom CSS ensures seamless usability across desktop and mobile devices.
+```bash
+pip install -r requirements.txt
+# add Data/Terra-D2-multi-labeled-interpolated.csv (not in repo), then:
+streamlit run application.py
+```
 
-•	**Performance Optimization:** Streamlit caching enhances efficiency for large datasets.
+`Dockerfile.txt` holds the container setup used for deployment (rename to `Dockerfile`; it expects the app file as `app.py`).
 
+---
 
+## Tech stack
+Streamlit, pandas, NumPy, Matplotlib, Folium / streamlit-folium, scikit-learn (Random Forest), imbalanced-learn (SMOTE), Hugging Face Transformers, sentence-transformers, NLTK VADER, Tweepy (X API), MLflow, Docker
 
-------------------------------------------------------------------------------------------------
-**🤖 Machine Learning Models:**
+---
 
-The application integrates multiple machine learning models to process and predict from diverse data sources, ensuring robust and actionable insights:
+## Project structure
+```
+application.py                     # Streamlit app
+requirements.txt
+Data/                              # sampled Chicago + sensor + sentiment data
+ML Model Evaluations/              # Random Forest evaluation notebook, metrics, plots, A/B test simulation files
+LLM Model/                         # X sentiment scraper + LLM alert notebook
+Architecture/                      # deployment design notebook
+Machine Learning Algorithms Details.docx
+Dockerfile.txt, Dockerignore.txt
+```
 
-  •	**Crime Prediction Model:** A supervised classification model (e.g., Random Forest) trained on historical crime data to predict crime probabilities by zone and hour. Features are engineered using pivot-based methods to identify violent crime hotspots with high accuracy.
+<img width="1081" height="725" alt="Route view" src="https://github.com/user-attachments/assets/917b6b74-0ee4-4b32-9553-25e4012ca2ff" />
 
-  •	**Weather Prediction Model:** A regression model (e.g., linear regression) forecasting weather risks based on temperature (>80°F) and precipitation (>0.1 inches), enhanced with synthetic data generation for robust risk assessment.
-
-  •	**News Sentiment LLM:** A fine-tuned large language model (e.g., BERT via Hugging Face) classifying news articles into sentiment scores, integrated to capture external event impacts (e.g., protests, road closures) on routing decisions.
-
-  •	**Sensor Degradation Model:** A quadratic regression model predicting ADAS vision sensor failure rates based on humidity, combined with weighted risk scoring for Terra-D2 gyro sensors, projecting up to $27,000 in annual maintenance savings.
-
-  •	**Composite Risk Model:** An ensemble approach aggregating predictions from crime, weather, sentiment, and sensor models, using Scikit-learn for feature scaling and NumPy for probabilistic route optimization, achieving an average cost reduction of 21%.
-
-  •	**Surge Pricing Model:** A rule-based model enhanced with machine learning to compute dynamic surge multipliers, incorporating temporal and demand features adjusted by risk penalties.
-  
-These models are built using **PyTorch**, **Scikit-learn**, and **NumPy**, with **MLflow** for experiment tracking to ensure reproducibility and scalability.
-
-------------------------------------------------------------------------------------------------
-
-**Accessing the Application:**
-
-  •	**Live Demo:** Access the application at **http://35.89.230.31:8501/**.
-
-  •	**Interaction Guide:**
-  
-  1.	Navigate to the **How It Works** section to understand the application’s components.
-
-  2.	Use the **Control Panel** to adjust parameters (e.g., hour, temperature, crime threshold).
-
-  3.	Explore sensor health in the **Sensor Performance Analysis** section.
-
-  4.	Simulate routes and view the heatmap in the **Route Optimization** and **Chicago Risk Heatmap** sections.
-
-  5.	Review KPIs in the **Executive Dashboard**.
-
-  6.	Calculate savings in the **What-If Cost Estimator** to see detailed cost breakdowns.
-
-------------------------------------------------------------------------------------------------
-
-
-**📊 Data Sources:**
-
-•	**Chicago Crime Data:** Sampled CSV from the Chicago Data Portal for crime prediction modeling.
-
-•	**Chicago Weather Data:** Historical weather metrics for weather risk assessment.
-
-•	**Chicago Taxi Data:** Sampled Excel file from taxi trip records for surge pricing and demand modeling.
-
-•	**ADAS-EV Dataset:** Sensor data for vision-based obstacle detection and risk weighting.
-
-•	**Terra-D2 Dataset:** Gyro sensor readings for stability risk analysis and degradation modeling.
-
-•	**News Sentiment Analysis:** CSV for LLM-based sentiment classification and risk factor integration.
-
-All data is preprocessed for privacy and efficiency. Full datasets are available on the Chicago Data Portal and Kaggle.
-
-
-------------------------------------------------------------------------------------------------
-
-
-**Technologies Used:**
-
-•	**Frontend:** Streamlit for an interactive, real-time dashboard.
-
-•	**Data Processing and Machine Learning:** Pandas, NumPy, Scikit-learn for preprocessing, feature engineering, and risk modeling.
-
-•	**Machine Learning Models:** PyTorch for potential graph neural network extensions, Hugging Face for LLM sentiment analysis, and regression/classification models for predictions.
-
-•	**Visualization:** Matplotlib for charts and Folium/Streamlit-Folium for geospatial maps.
-
-•	**Additional Tools:** Custom CSS for mobile responsiveness, MLflow for experiment tracking, and Streamlit caching for performance optimization.
-
-
-------------------------------------------------------------------------------------------------
-
-
-**Breakdown of Each Application Section:**
-The SmartFleet Route Optimizer is organized into modular sections, each leveraging AI to deliver specific functionality for fleet management. Below is a detailed breakdown of each section, highlighting its purpose, AI integration, and business value.
-
-**1. Main Header**
-
-•	**Purpose:** Introduces the application as a real-time, AI-powered route optimization tool for safer and more efficient fleet operations.
-
-•	**AI Integration:** Provides context for AI-driven features without direct model integration.
-
-•	**Value:** Positions the application as a critical tool for operational efficiency, appealing to stakeholders by bridging technical AI capabilities with business outcomes.
-
-**2. How It Works**
-
-•	**Purpose:** Guides users through the application’s key components with concise descriptions, making it easy to understand its functionality and value.
-
-•	**AI Integration:** None directly; sets the stage for AI-driven sections.
-
-•	**Value:** Enhances user onboarding, ensuring accessibility for both technical and non-technical users, including executives and fleet managers.
-
-**3. Control Panel - Environmental & Temporal Factors**
-
-•	**Purpose:** Allows users to adjust variables such as day, hour, month, temperature, precipitation, wind, humidity, visibility, demand density, surge multiplier, maintenance impact, crime threshold, and sensor influence weights to simulate routing scenarios.
-
-•	**AI Integration:** Inputs feed into AI models for crime prediction, weather forecasting, sentiment analysis, and sensor risk scoring, enabling dynamic route optimization.
-
-•	**Value:** Demonstrates the application’s flexibility in adapting to real-world conditions, showcasing real-time AI inference for scenario planning. The Crime Risk Threshold slider, with its note ("SmartFleet recommends setting the Crime Risk Threshold to 1.0 (maximum) for optimal safety and cost savings. Adjust the slider to explore route modifications and savings driven by our AI-powered crime prediction model."), has transformed user engagement, making it a standout feature for visualizing safety and cost impacts.
-
-<img width="1105" height="365" alt="{8889C828-816E-4228-9A4C-7A9DA054241E}" src="https://github.com/user-attachments/assets/8183b73b-fdff-4f41-a61c-23f3a4d59600" />
-
-
-**4. Sensor Performance Analysis**
-
-•	**Purpose:** Monitors the health of ADAS vision and Terra-D2 gyro sensors, displaying failure rates and remaining sensor life based on environmental conditions like humidity.
-
-•	**AI Integration:** Employs a quadratic regression model to predict sensor degradation, with visualizations generated using Matplotlib and NumPy-based risk calculations.
-
-•	**Value:** Projects up to $27,000 in annual maintenance savings by enabling predictive maintenance, reducing downtime and costs. This section highlights AI-driven IoT analytics for fleet management.
-
-<img width="1041" height="745" alt="{D8AB9F77-807D-4434-8864-00EB036CA6AC}" src="https://github.com/user-attachments/assets/d5d0d77e-3e99-4e24-8b98-c2706c1b2c7d" />
-
-
-**5. Route Optimization**
-
-•	**Purpose:** Simulates and visualizes low-risk routes through five Chicago zones, avoiding high-risk areas such as crime hotspots.
-
-•	**AI Integration:** Uses a probabilistic NumPy-based algorithm aggregating predictions from crime, weather, sentiment, and sensor models to compute a total risk score, visualized with Matplotlib.
-
-•	**Value:** Reduces simulated collision risks by up to 18%, demonstrating the power of AI in optimizing routes for safety and efficiency.
-
-<img width="1081" height="725" alt="{E2E9AA24-CA77-434A-959B-CB805BC53CB2}" src="https://github.com/user-attachments/assets/917b6b74-0ee4-4b32-9553-25e4012ca2ff" />
-
-
-**6. Chicago Interactive Map**
-
-•	**Purpose:** Provides a geospatial visualization of crime density and optimized routes across Chicago.
-
-•	**AI Integration:** Renders heatmaps using Folium, driven by AI-predicted crime probabilities and traffic risks, with route markers reflecting sensor-based risk scores.
-
-•	**Value:** Offers intuitive geospatial analysis, enabling fleet managers to visualize and act on AI-driven risk insights.
-
-
-
-**7. Executive Dashboard**
-
-•	**Purpose:** Summarizes fleet-wide performance through KPIs, including active vehicles, daily route savings, risk reduction, and sensor ROI, supported by visualizations.
-
-•	**AI Integration:** Derives metrics (e.g., risk reduction percentage) from AI simulation outputs, visualized with Matplotlib pie, bar, and line charts.
-
-•	**Value:** Translates AI predictions into actionable business metrics, enabling strategic decision-making with clear ROI insights (e.g., up to 95% risk reduction).
-
-<img width="973" height="589" alt="{E9AC852F-5557-49E6-88F7-D7D20817B325}" src="https://github.com/user-attachments/assets/4703930b-93bf-4bbc-9c3f-0e5b18979252" />
-
-
-**8. What-If Cost Estimator**
-
-•	**Purpose:** Calculates projected annual fleet savings based on user inputs for fleet size, trip frequency, distance, and cost, with a detailed breakdown of savings sources.
-
-•	**AI Integration:** Incorporates AI-driven predictions (e.g., crime avoidance percentages) into arithmetic models, projecting up to 23.5% cost reductions for a 1,500-vehicle fleet. The breakdown includes:
-  o	**Sensor Maintenance:** Up to $27,000 in savings from predictive maintenance.
-  o	**Crime Avoidance:** Up to $5.475M by avoiding high-crime zones.
-  o	**Sentiment-Based Avoidance:** $1.095M by avoiding negative sentiment zones.
-  o	**Fuel Efficiency:** $3.454M from optimized routes and reduced idling.
-  o	**Other Operational:** Up to $9.617M from demand-based routing and surge pricing optimizations.
-
-•	**Value:** Provides a compelling financial justification for adopting SmartFleet, with detailed, transparent savings calculations that have been refined to maximize clarity and impact for sales teams and potential buyers.
-
-<img width="977" height="793" alt="{0DDEB691-E78D-4C7B-AF00-EEC8EBD9E328}" src="https://github.com/user-attachments/assets/9d64fa87-b76d-4ea6-aa77-3da28531cf89" />
-
+<img width="973" height="589" alt="Executive dashboard" src="https://github.com/user-attachments/assets/4703930b-93bf-4bbc-9c3f-0e5b18979252" />
