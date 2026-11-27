@@ -1,8 +1,10 @@
 # 🚛 SmartFleet Route Optimizer
 
+> **Status:** the route view is a simulation today. The next stop is picked at random, not by an optimizer. A risk-weighted route is in progress; this README will be updated when it ships.
+
 A Streamlit prototype that combines Chicago crime, taxi, traffic, weather, vehicle-sensor and event-sentiment data into a route risk score, with an interactive map, scenario controls and a what-if cost calculator. Supporting notebooks cover a Random Forest risk evaluation and an X (Twitter) sentiment + LLM-summary pipeline.
 
-**Live demo:** http://35.89.230.31:8501/ (may be offline when the server isn't running)
+**Live demo:** http://35.89.230.31:8501/ (demo server; may be offline at times)
 
 <img width="1517" height="917" alt="SmartFleet dashboard" src="https://github.com/user-attachments/assets/749085b6-c912-4f66-98db-e2b35a274618" />
 
@@ -33,7 +35,7 @@ From `ML Model Evaluations/deployed_metrics.csv` and the evaluation notebook:
 
 | Model | Data | Accuracy | F1 | ROC-AUC |
 |-------|------|----------|----|---------|
-| Crime risk (Random Forest) | 72 zone-hour rows (SMOTE applied), ~18 test rows | 0.94 | 0.93 | 0.95 |
+| Crime risk (Random Forest) | 72 zone-hour rows (SMOTE applied); very small test set | 0.94 | 0.93 | 0.95 |
 | Composite risk (Random Forest) | 13,291 rows | 0.84 | 0.84 | 0.93 |
 
 Caveats:
@@ -46,6 +48,24 @@ Caveats:
 - Replace the random route sampling with a real optimizer (e.g. shortest path over a risk-weighted road graph)
 - Serve the trained models in the app instead of fixed formulas
 - Evaluate on a larger, fully real labelled dataset
+
+---
+
+## Architecture
+
+What the shipped app does today:
+
+```mermaid
+graph LR
+    A[Sampled Chicago data<br/>taxi, crime, weather, traffic,<br/>ADAS sensor, sentiment] --> B[Merge by time / zone]
+    B --> C[Rule-based risk score<br/>weighted by sliders]
+    C --> D[Charts, KPIs,<br/>what-if cost estimate]
+    C --> E[Route view<br/>random next stop - simulation]
+    C --> F[Folium crime heatmap]
+    G[Notebooks: Random Forest risk models,<br/>X sentiment + LLM alerts] -.not loaded by the app.-> C
+```
+
+One Streamlit app (`application.py`) on a single cloud server, port 8501. The notebooks run separately in Colab/Jupyter.
 
 ---
 
@@ -94,3 +114,7 @@ Dockerfile.txt, Dockerignore.txt
 <img width="1081" height="725" alt="Route view" src="https://github.com/user-attachments/assets/917b6b74-0ee4-4b32-9553-25e4012ca2ff" />
 
 <img width="973" height="589" alt="Executive dashboard" src="https://github.com/user-attachments/assets/4703930b-93bf-4bbc-9c3f-0e5b18979252" />
+
+---
+
+Built by Ron Lance, [Alpha Peak Technologies](https://alphapeaktech.com) · [LinkedIn](https://www.linkedin.com/in/ron-lance-49aa2a8/)
